@@ -75,6 +75,8 @@ else:
         list_function = list_functions[level_2_choice]
         df = list_function()
         if df is not None and isinstance(df, pd.DataFrame):
+            df = df.reset_index(drop=True)
+            df.index += 1
             st.write(df)
         else:
             st.error("The list function did not return a valid DataFrame.")

@@ -14,7 +14,7 @@ def list_fouryear_q1toq5_all():
     df = df[q1toq5_columns]
 
     # Sort the data by kq2_cond_parq1
-    df = df.sort_values(by='kq5_cond_parq1', ascending=False).head(50)
+    df = df.sort_values(by='kq5_cond_parq1', ascending=False)
 
     # Convert kq5_cond_parq1 to percentage with no decimals
     df['kq5_cond_parq1'] = (df['kq5_cond_parq1'] * 100).round(0).astype(int).astype(str) + '%'
