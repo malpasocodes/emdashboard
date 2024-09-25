@@ -105,7 +105,6 @@ def plot_twoyear_q1toq5_all():
 
 def plot_twoyear_q1toq5_top():
     
-
     # Load the dataset
     df = load_data("two")
     

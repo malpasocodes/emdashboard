@@ -25,6 +25,9 @@ def plot_fouryear_q1toq5_all():
     # Load the dataset
     df = load_data("four")
 
+    # filter count > 500
+    df = df[df['count'] > 500]
+
     fig = px.scatter(
         df,
         x='kq5_cond_parq1',
@@ -41,7 +44,6 @@ def plot_fouryear_q1toq5_all():
         xaxis_tickformat='.0%'
     )
     return fig
-
 
 
 def plot_fouryear_q1toq5_top():

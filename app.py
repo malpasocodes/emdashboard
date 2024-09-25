@@ -18,7 +18,36 @@ level_1_choice = st.sidebar.selectbox("Select a Section", level_1_choices)
 if level_1_choice == "Home":
     st.title("Student Economic Mobility App")  
     st.write("Welcome to the student economic mobility analysis dashboard. This dashboard allows you to explore data on economic mobility at different types of colleges.")
-    st.write("The data used in this dashboard is sourced mostly from the Opportunity Insights project.")
+
+    st.write(
+        "The data used in this dashboard is sourced mostly from the "
+        "[Opportunity Insights Project](https://opportunityinsights.org). "
+        "Please note that any errors or interpretations of the data should not "
+        "be attributed to the Opportunity Insights project."
+    )
+    
+    st.write("The dashboard is work in progress and we welcome your feedback and suggestions.")
+
+    st.header("Definitions")
+    st.write("1. **Economic Mobility**: We can define economic mobility as the ability of a person, familiy, or group to improve their economic status over time."
+             " In this dashboard, we focus on the economic mobility of students who attend different colleges.")
+    st.write("2. **Fading American Dream**: The term *'Fading American Dream'* refers to the idea that the economic mobility of students in the United States has been declining over time."
+             " According to the Opportunity Insights Project, *'The defining feature of the American Dream is upward mobility – "
+             "the aspiration that all children have a chance at economic success, no matter their background. "
+             "However, our research shows that children's chances of earning more than their parents have been declining.'"
+             "90% of children born in 1940 grew up to earn more than their parents. Today, only half of all children earn more than their parents did.'*")
+    
+    st.write("3. **Restoring the American Dream**: The term *'Restoring the American Dream'* refers to the idea that the economic mobility of students in the United States can be improved over time."
+             "With this dashboard, we aim to provide insights into the economic mobility of students who attend different colleges.")
+    
+    st.write("4. **Income Quintiles and Generational Mobility**: Our basic unit of analysis will be economic quintiles. Our analysis will focus on generational mobility. If a student's parents belong to a certain income quintile (e.g. Q1),"
+            "what is the probability they can move up to a higher income quintile (e.g. Q2, Q3, Q4, Q5) when they attend a particular college.")
+    
+    # Center the image using st.columns
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.image("images/quintiles.png", width=300, use_column_width=False)
+     
 # Logic for when another section is selected
 else:
     # Level 2: Sub-choices based on the Level 1 choice
