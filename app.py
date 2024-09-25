@@ -23,9 +23,9 @@ if level_1_choice == "Home":
 else:
     # Level 2: Sub-choices based on the Level 1 choice
     if level_1_choice == "Two-Year Colleges":
-        level_2_choices = ["Two-Year: All Q1toQ2 (Viz)", "Two-Year: All Q1toQ2 (List)", "Two-Year: Top50 Q1toQ2 (Viz)", "Two-Year: Top50 Q1toQ2 (List)", "Two-Year: All Q1toQ5 (Viz)", "Two-Year: All Q1toQ5 (List)", "Two-Year: Top50 Q1toQ5 (Viz)", "Two-Year: Top50 Q1toQ5 (List)"]
+        level_2_choices = ["Two-Year: All Q1toQ2 (Viz)", "Two-Year: All Q1toQ2 (List)", "Two-Year: Top25 Q1toQ2 (Viz)", "Two-Year: Top25 Q1toQ2 (List)", "Two-Year: All Q1toQ5 (Viz)", "Two-Year: All Q1toQ5 (List)", "Two-Year: Top25 Q1toQ5 (Viz)", "Two-Year: Top25 Q1toQ5 (List)"]
     elif level_1_choice == "Four-Year Colleges":
-        level_2_choices = ["Four-Year: All Q1toQ5 (Viz)", "Four-Year: All Q1toQ5 (List)", "Four-Year: Top50 Q1toQ5 (Viz)", "Four-Year: Top50 Q1toQ5 (List)", "Four-Year: Composite Top50 (List)"]
+        level_2_choices = ["Four-Year: All Q1toQ5 (Viz)", "Four-Year: All Q1toQ5 (List)", "Four-Year: Top25 Q1toQ5 (Viz)", "Four-Year: Top25 Q1toQ5 (List)", "Four-Year: Composite Top25 (List)"]
       
     elif level_1_choice == "Colleges Serving Wealthiest":
         level_2_choices = ["Enroll Most 1%", "Enroll Most .1%", "Income Distribution"]
@@ -42,11 +42,11 @@ else:
     # Define a dictionary mapping level_2_choice to plotting functions
     plot_functions = {
         "Two-Year: All Q1toQ2 (Viz)": plot_twoyear_q1toq2_all,
-        "Two-Year: Top50 Q1toQ2 (Viz)": plot_twoyear_q1toq2_top,
+        "Two-Year: Top25 Q1toQ2 (Viz)": plot_twoyear_q1toq2_top,
         "Two-Year: All Q1toQ5 (Viz)": plot_twoyear_q1toq5_all,  
-        "Two-Year: Top50 Q1toQ5 (Viz)": plot_twoyear_q1toq5_top,   
+        "Two-Year: Top25 Q1toQ5 (Viz)": plot_twoyear_q1toq5_top,   
         "Four-Year: All Q1toQ5 (Viz)": plot_fouryear_q1toq5_all, 
-        "Four-Year: Top50 Q1toQ5 (Viz)": plot_fouryear_q1toq5_top,
+        "Four-Year: Top25 Q1toQ5 (Viz)": plot_fouryear_q1toq5_top,
         "Enroll Most 1%": plot_enroll_top1pc,
         "Enroll Most .1%": plot_enroll_toppt1pc,
         "Income Distribution": plot_inc_distribution
@@ -55,12 +55,12 @@ else:
 
     list_functions = {
     "Two-Year: All Q1toQ2 (List)": list_twoyear_q1toq2_all,
-    "Two-Year: Top50 Q1toQ2 (List)": list_twoyear_q1toq2_top50,
+    "Two-Year: Top25 Q1toQ2 (List)": list_twoyear_q1toq2_top50,
     "Two-Year: All Q1toQ5 (List)": list_twoyear_q1toq5_all,
-    "Two-Year: Top50 Q1toQ5 (List)": list_twoyear_q1toq5_top50,
+    "Two-Year: Top25 Q1toQ5 (List)": list_twoyear_q1toq5_top50,
     "Four-Year: All Q1toQ5 (List)": list_fouryear_q1toq5_all,
-    "Four-Year: Top50 Q1toQ5 (List)": list_fouryear_q1toq5_top50,
-    "Four-Year: Composite Top50 (List)": list_fouryear_composite_top50
+    "Four-Year: Top25 Q1toQ5 (List)": list_fouryear_q1toq5_top50,
+    "Four-Year: Composite Top25 (List)": list_fouryear_composite_top50
 }
 
     # Determine the function type and call the appropriate function

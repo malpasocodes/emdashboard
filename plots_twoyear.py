@@ -24,6 +24,9 @@ def plot_twoyear_q1toq2_all():
     # Load the dataset
     df = load_data("two")
 
+    df = df[df['count'] >= 1000]
+
+
 
     fig = px.scatter(
         df,
@@ -49,8 +52,11 @@ def plot_twoyear_q1toq2_top():
     # Load the dataset
     df = load_data("two")
 
+    # filter for cohort count >=500
+    df = df[df['count'] >= 1000]
+
     # sort by mobility rate 
-    df = df.sort_values(by='kq2_cond_parq1', ascending=False).head(50)
+    df = df.sort_values(by='kq2_cond_parq1', ascending=False).head(25)
 
     fig = px.scatter(
         df,
@@ -75,6 +81,9 @@ def plot_twoyear_q1toq5_all():
 
     # Load the dataset
     df = load_data("two")
+
+    df = df[df['count'] >= 1000]
+
 
     fig = px.scatter(
         df,

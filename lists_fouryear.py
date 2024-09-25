@@ -1,7 +1,7 @@
 import plotly.express as px
 from data_loader import load_data
 
-q1toq5_columns = ['name', 'state','kq5_cond_parq1','par_q1','tier_name','par_median', 'count']
+q1toq5_columns = ['name', 'state','kq5_cond_parq1','par_q1','tier','par_median', 'count']
 
 
 # Function to create a scatter plot
@@ -9,6 +9,9 @@ def list_fouryear_q1toq5_all():
 
     # Load the dataset
     df = load_data("four")
+
+    # filter count > 500
+    df = df[df['count'] > 500]
 
     # filter columns
     df = df[q1toq5_columns]
@@ -72,14 +75,14 @@ def list_fouryear_composite_top50():
 
     # Define the updated weights for each mobility transition
     weights = {
-        'kq2_cond_parq1': 3,  # Q1 to Q2 - higher weight
-        'kq3_cond_parq1': 1.5,  # Q1 to Q3 - lower weight
-        'kq4_cond_parq1': 1.5,  # Q1 to Q4 - lower weight
-        'kq5_cond_parq1': 3    # Q1 to Q5 - higher weight
+        'kq2_cond_parq1': 1,  # Q1 to Q2 - higher weight
+        'kq3_cond_parq1': 2,  # Q1 to Q3 - lower weight
+        'kq4_cond_parq1': 3,  # Q1 to Q4 - lower weight
+        'kq5_cond_parq1': 4    # Q1 to Q5 - higher weight
     }
 
     # Maximum possible score is now 3 (since the highest weight is 3)
-    max_score = 3
+    max_score = 4
 
     # Calculate the mobility score using the updated weighted sum of probabilities
     df['mobility_score'] = (
@@ -95,12 +98,9 @@ def list_fouryear_composite_top50():
     # Sort the data by normalized mobility score
     df = df.sort_values(by='normalized_mobility_score', ascending=False).head(50)
 
-    columns = ['name', 'state', 'normalized_mobility_score', 'kq5_cond_parq1', 'kq2_cond_parq1', 'count']
+    columns = ['name', 'state', 'normalized_mobility_score', 'kq5_cond_parq1', 'count']
 
     df = df[columns]
-
-
-
 
     return df
 
